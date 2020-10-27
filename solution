@@ -1,0 +1,104 @@
+import java.util.Scanner; 
+
+public class Main
+{
+	public static void main(String[] args) {
+	    
+		Scanner scanner = new Scanner(System.in);
+		int input = Integer.parseInt(scanner.nextLine());
+		int specialRow = input-1;// for the row with the @
+	    for (int rows =1 ; rows < input ; rows++){// upper part
+	        printLeftUpper(rows, input, specialRow);
+	        printRightUpper(rows, input,specialRow);   
+	        System.out.println();
+	    }
+	    for (int rows=1; rows<=input-2; rows++){// lower part
+	        printLeftLower(rows, input, specialRow);
+	        printRightLower(rows, input,specialRow);   
+	        System.out.println();
+	    }
+	    
+	}
+	
+    public static void printLeftUpper(int rows, int input, int special){
+	    
+	            if(rows %2!=0){
+	                for (int stars=1 ; stars<= input-2 ;stars++){
+	                     System.out.print("*");
+	                }
+	                System.out.print("\\ ");
+	            } else if (rows == special){
+	                for (int sp= 1; sp<=input; sp++){
+	                    if(sp!=input){
+	                       System.out.print(" ");
+	                    } else 
+	                    System.out.print("@");
+	                }
+	            } else if(rows%2==0){
+	               for (int dash= 1 ; dash<= input-2 ; dash++){
+	                     System.out.print("-");
+	                }
+	                System.out.print("\\ "); 
+	            }
+	}
+   public static void printRightUpper(int rows, int input, int special){
+	    
+	            if(rows %2!=0){
+	                System.out.print("/");
+	                for (int stars=1 ; stars<= input-2 ;stars++){
+	                     System.out.print("*");
+	                }
+	                
+	            } else if (rows == special){
+	                for (int sp= 1; sp<=input; sp++){
+	                    if(sp!=input){
+	                       System.out.print(" ");
+	                    } 
+	                }
+	            } else if(rows%2==0){
+	                System.out.print("/");
+	               for (int dash= 1 ; dash<= input-2 ; dash++){
+	                     System.out.print("-");
+	                }
+	                 
+	            }
+   }
+	            
+// end upper part
+
+
+	public static void printLeftLower(int rows, int input, int special){
+	    
+	            if(rows %2!=0){
+	                for (int stars=1 ; stars<= input-2 ;stars++){
+	                     System.out.print("*");
+	                }
+	                System.out.print("/ ");
+	            } 
+	            else{
+	               for (int dash= 1 ; dash<= input-2 ; dash++){
+	                     System.out.print("-");
+	                }
+	                System.out.print("/ "); 
+	            }
+	}
+	
+	public static void printRightLower(int rows, int input, int special){
+	    
+	            if(rows %2!=0){
+	                System.out.print("\\");
+	                for (int stars=1 ; stars<= input-2 ;stars++){
+	                     System.out.print("*");
+	                }
+	            } 
+	            else{
+	                System.out.print("\\");
+	               for (int dash= 1 ; dash<= input-2 ; dash++){
+	                     System.out.print("-");
+	                }
+	            }
+	}
+
+	            
+	            
+}// end class
